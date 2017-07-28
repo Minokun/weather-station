@@ -6,21 +6,6 @@ import LunarUtil from './LunarUtil.js';
 
 const { Header, Footer, Content} = Layout;
 let cDate = LunarUtil.today();
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <div className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h2>Welcome to React</h2>
-//         </div>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
 
 class WheatherMap extends Component{
   constructor(props){
@@ -33,26 +18,222 @@ class WheatherMap extends Component{
   }
 }
 
+class WheatherStation extends Component{
+  render(){
+    return(
+      <div>
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="xj.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1>光华东街</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1>10:45 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+              温度
+              </div>
+              <div className="station-rain-wind">
+              雨 风
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Main extends Component {
   state = {
-    map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1",
+    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1',
     map_type: 1,
-    years: new Date().getFullYear(),
+    date: '',
     hour_time: new Date().getHours(),
     minutes_time: new Date().getMinutes(),
-    seconds_time:new Date().getSeconds(),
+  }
+
+  getDate = () => {
+    var mydate = new Date();
+    var wday = ''
+    switch(mydate.getDay()){
+      case 0:
+        wday = "星期天";
+        break;
+      case 1:
+        wday =  "星期一";
+        break;
+      case 2:
+        wday =  "星期二";
+        break;
+      case 3:
+        wday =  "星期三";
+        break;
+      case 4:
+        wday =  "星期四";
+        break;
+      case 5:
+        wday =  "星期五";
+        break;
+      case 6:
+        wday =  "星期六";
+        break;
+    }
+    var current_date = mydate.getFullYear() + "-" + (mydate.getMonth() + 1) + "-" + mydate.getDate() + " " + wday;
+    return current_date;
   }
 
   componentDidMount(){
+    var current_date = this.getDate();
+    this.setState({
+      date: current_date,
+    });
     this.timer1 = setInterval(
       ()=>{
         this.setState({
           hour_time: new Date().getHours(),
           minutes_time: new Date().getMinutes(),
-          seconds_time:new Date().getSeconds(),
         });
       }
-      , 1000);
+      , 60000);
 
     this.timer2 = setInterval(
       ()=>{
@@ -88,24 +269,33 @@ class Main extends Component {
         <Layout>
           <Header>
             <Row>
-              <Col span={13}>
+              <Col span={2}>
+                <img src="icon.png" className="img-icon"/>
+              </Col>
+              <Col span={12}>
                 <ul>
                   <li><h1 className="header_title">风雨相守&nbsp;&nbsp;冷暖相知</h1></li>
-                  <li><p className="header_title_py">Wheather Information Service</p></li>
+                  <li><p className="header_title_py">&nbsp;&nbsp;Wheather Information Service</p></li>
                 </ul>
               </Col>
-              <Col span={4}>无预警</Col>
-              <Col span={7}>
+              <Col span={4}></Col>
+              <Col span={6}>
                 <div className="nl_time">农历 {cDate}</div>
-                <div><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.seconds_time}</span></div>
-                <div className="">这是第三行</div>
+                <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
+                <div className="current_date">{this.state.date}</div>
               </Col>
             </Row>
           </Header>
           <Content>
-            <WheatherMap map_url={this.state.map_url}/>
+            <div className="div-frame">
+              <WheatherMap map_url={this.state.map_url}/>
+            </div>
+            <div className="title_tip">
+              <span class="title_tip_font">自动站实况</span>
+            </div>
+            <WheatherStation />
           </Content>
-          <Footer className="footer">Footer</Footer>
+          <Footer className="footer"></Footer>
         </Layout>
     );
   }

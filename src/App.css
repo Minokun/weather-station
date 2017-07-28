@@ -28,16 +28,17 @@
 }
 
 .ant-layout-header {
-  background-image: url("bg03.png");
+  background-image: url("header.png");
   background-repeat:no-repeat;
   background-size:100% 100%;
   height: 180px;
 }
 
 .footer {
-  background-image: url("bg03.jpg");
+  background-image: url("footer.png");
   background-repeat:no-repeat;
   background-size:100% 100%;
+  height: 65px;
 }
 
 .header_title {
@@ -57,16 +58,22 @@
   opacity: 0.8;
 }
 
+.div-frame {
+  width: 100%;
+  height: 680px;
+  background-color: white;
+}
+
 .map {
   width: 100%;
-  height: 800px;
+  height: 680px;
 }
 
 .nl_time {
   color: white;
   font-size: 2em;
-  padding-left: 42px;
   height: 50px;
+  padding-left: 20px;
 }
 
 .current_time {
@@ -79,10 +86,71 @@
   border-radius:15px;
 }
 
+.clock {
+  margin-top: 3px;
+  padding-left: 20px;
+}
+
+.current_date {
+  color: white;
+  font-size: 2em;
+  height: 30px;
+  margin-top: -25px;
+}
+
 .time_charactor {
   font-size: 5em;
   color: white;
   display:-moz-inline-box;
   display:inline-block;
   width: 20px;
+}
+
+.img-icon {
+  width: 80px;
+  padding-top: 50px;
+  margin-left: -20px;
+}
+
+.title_tip {
+  background-image: url('tip.png');
+  background-repeat:no-repeat;
+  background-size:500px 100%;
+  width: 90%;
+  height: 80px;
+  margin: 15px;
+  border-radius:20px;
+  font-size: 50px;
+  color: white;
+  font-weight: 50px;
+  text-shadow:5px 2px 6px #000;
+  padding-left: 20px;
+}
+
+.title_tip_font {
+  margin-left: 10px;
+}
+
+.station-info {
+  border-radius:15px;
+  float: left;
+  margin-left: 25px;
+  margin-top: 16px;
+  box-shadow:0 0 10px #000;
+  border: 1px solid silver;
+  width: 500px;
+  height: 273px;
+  background-color: #b6ebb7;
+}
+
+.station-info-img {
+  border-radius:20px;
+  width: 98%;
+  margin: 4px;
+  height: 262px;
+}
+
+.station-title,.station-tem,.station-rain-wind {
+  height: 90px;
+  border: 1px solid black;
 }
