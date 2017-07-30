@@ -140,7 +140,7 @@
   border: 1px solid silver;
   width: 500px;
   height: 273px;
-  background-color: #b6ebb7;
+  background-color: #02C874;
 }
 
 .station-info-img {
@@ -152,5 +152,54 @@
 
 .station-title,.station-tem,.station-rain-wind {
   height: 90px;
-  border: 1px solid black;
+}
+
+.station-name {
+  color:white;
+  margin-top: 25px;
+  margin-left: 30px;
+}
+
+.station-time {
+  color:white;
+  margin-top: 30px;
+  font-size: 1.7em;
+}
+
+.tem_h {
+  height: 70px;
+  padding-left:15px;
+  padding-top:10px;
+}
+
+.tem-word {
+  margin-top: 28px;
+  margin-left: 10px;
+  font-size: 2em;
+  color: white;
+}
+
+.tem-low-high {
+  margin-top: 15px;
+  margin-left: 23px;
+  color: white;
+  font-size: 1.7em;
+}
+
+.station-rain {
+  height: 60px;
+  margin-top: 10px; 
+  margin-left: 5px;
+}
+
+.station-wind {
+  margin-top: 30px;
+  margin-left: 12px;
+}
+
+.station-wind-word {
+  margin-top: 15px;
+  margin-left: 3px;
+  color: white;
+  font-size: 1.7em;
 }

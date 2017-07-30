@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Layout  , Row , Col } from 'antd';
+import { Layout  , Row , Col ,Icon} from 'antd';
 import LunarUtil from './LunarUtil.js';
 
 const { Header, Footer, Content} = Layout;
@@ -31,18 +31,47 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">九城宫四社</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">10.0 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 28.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 9.5 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西北风</li>
+                        <li>1.2 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
@@ -57,18 +86,47 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">特拉壕</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">12.3 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 25.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 3.2 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;36 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>东风</li>
+                        <li>1.2 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
@@ -83,18 +141,47 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">罕台川</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">15.3 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 24.7 ℃</li>
+                      <li><Icon type="arrow-down" /> 6.5 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;27 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西南风</li>
+                        <li>1.6 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
@@ -109,18 +196,47 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">巴彦敖包</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">8.0 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 27.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 4.1 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西北风</li>
+                        <li>1.2 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
@@ -135,18 +251,47 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">布日都梁</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">13.0 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 29.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 4.5 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>东北风</li>
+                        <li>0.9 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
@@ -161,22 +306,52 @@ class WheatherStation extends Component{
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1>光华东街</h1>
+                    <h1 className="station-name">万利镇</h1>
                   </Col>
                   <Col span={10}>
-                    <h1>10:45 实况</h1>
+                    <h1 className="station-time">10:45 实况</h1>
                   </Col>
                 </Row>
               </div>
               <div className="station-tem">
-              温度
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">10.0 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 28.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 9.5 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
               <div className="station-rain-wind">
-              雨 风
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西北风</li>
+                        <li>1.4 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
               </div>
             </Col>
           </Row>
         </div>
+
       </div>
     );
   }
