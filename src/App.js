@@ -25,16 +25,16 @@ class WheatherStation extends Component{
         <div className="station-info">
           <Row>
             <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
+              <img src="st_ds.jpeg" className="station-info-img"/>
             </Col>
             <Col span={14}>
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1 className="station-name">九城宫四社</h1>
+                    <h1 className="station-name">东胜城区</h1>
                   </Col>
                   <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
                   </Col>
                 </Row>
               </div>
@@ -44,12 +44,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">10.0 ℃</h1>
+                    <h1 className="tem-word">24.6 ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 28.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 9.5 ℃</li>
+                      <li><Icon type="arrow-up" /> 25.9 ℃</li>
+                      <li><Icon type="arrow-down" /> 17.7 ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -60,7 +60,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;10 mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -68,7 +68,7 @@ class WheatherStation extends Component{
                     <Col span={8}>
                       <ul className="station-wind-word">
                         <li>西北风</li>
-                        <li>1.2 m/s</li>
+                        <li>2.5 m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -80,16 +80,16 @@ class WheatherStation extends Component{
         <div className="station-info">
           <Row>
             <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
+              <img src="st_bjh.jpeg" className="station-info-img"/>
             </Col>
             <Col span={14}>
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1 className="station-name">特拉壕</h1>
+                    <h1 className="station-name">泊江海</h1>
                   </Col>
                   <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
                   </Col>
                 </Row>
               </div>
@@ -99,12 +99,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">12.3 ℃</h1>
+                    <h1 className="tem-word">24.8 ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
                       <li><Icon type="arrow-up" /> 25.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 3.2 ℃</li>
+                      <li><Icon type="arrow-down" /> 17.9 ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -115,172 +115,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;36 %</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>东风</li>
-                        <li>1.2 m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">罕台川</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">15.3 ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 24.7 ℃</li>
-                      <li><Icon type="arrow-down" /> 6.5 ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;27 %</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>西南风</li>
-                        <li>1.6 m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">巴彦敖包</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">8.0 ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 27.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 4.1 ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>西北风</li>
-                        <li>1.2 m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">布日都梁</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">13.0 ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 29.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 4.5 ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -288,7 +123,7 @@ class WheatherStation extends Component{
                     <Col span={8}>
                       <ul className="station-wind-word">
                         <li>东北风</li>
-                        <li>0.9 m/s</li>
+                        <li>2.0 m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -300,16 +135,16 @@ class WheatherStation extends Component{
         <div className="station-info">
           <Row>
             <Col span={10}>
-              <img src="xj.jpeg" className="station-info-img"/>
+              <img src="st_slek.jpeg" className="station-info-img"/>
             </Col>
             <Col span={14}>
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1 className="station-name">万利镇</h1>
+                    <h1 className="station-name">色连二矿</h1>
                   </Col>
                   <Col span={10}>
-                    <h1 className="station-time">10:45 实况</h1>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
                   </Col>
                 </Row>
               </div>
@@ -319,12 +154,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">10.0 ℃</h1>
+                    <h1 className="tem-word">24.0 ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 28.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 9.5 ℃</li>
+                      <li><Icon type="arrow-up" /> 24.1 ℃</li>
+                      <li><Icon type="arrow-down" /> 17.8 ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -335,7 +170,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;29 %</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -343,7 +178,172 @@ class WheatherStation extends Component{
                     <Col span={8}>
                       <ul className="station-wind-word">
                         <li>西北风</li>
-                        <li>1.4 m/s</li>
+                        <li>3.0 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="st_ysmk.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1 className="station-name">永顺煤矿</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">28.1 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 29.4 ℃</li>
+                      <li><Icon type="arrow-down" /> 18.6 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-rain-wind">
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西南风</li>
+                        <li>0.7 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="st_tlh.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1 className="station-name">特拉壕煤矿</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">24.4 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 26.5 ℃</li>
+                      <li><Icon type="arrow-down" /> 15.9 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-rain-wind">
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西北风</li>
+                        <li>3.0 m/s</li>
+                      </ul>
+                    </Col>
+                  </Row>
+              </div>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="station-info">
+          <Row>
+            <Col span={10}>
+              <img src="st_mdmk.jpeg" className="station-info-img"/>
+            </Col>
+            <Col span={14}>
+              <div className="station-title">
+                <Row>
+                  <Col span={14}>
+                    <h1 className="station-name">明达煤矿</h1>
+                  </Col>
+                  <Col span={10}>
+                    <h1 className="station-time">{this.props.current_time} 实况</h1>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-tem">
+                <Row>
+                  <Col span={4}>
+                    <img src="tem_h.png" className="tem_h"/>
+                  </Col>
+                  <Col span={8}>
+                    <h1 className="tem-word">25.7 ℃</h1>
+                  </Col>
+                  <Col span={12}>
+                    <ul className="tem-low-high">
+                      <li><Icon type="arrow-up" /> 28.4 ℃</li>
+                      <li><Icon type="arrow-down" /> 14.2 ℃</li>
+                    </ul>
+                  </Col>
+                </Row>
+              </div>
+              <div className="station-rain-wind">
+                <Row>
+                    <Col span={4}>
+                      <img src="rain.png" className="station-rain"/>
+                    </Col>
+                    <Col span={8}>
+                      <h1 className="tem-word">&nbsp;&nbsp;0 mm</h1>
+                    </Col>
+                    <Col span={4}>
+                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                    </Col>
+                    <Col span={8}>
+                      <ul className="station-wind-word">
+                        <li>西北风</li>
+                        <li>2.8 m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -364,6 +364,7 @@ class Main extends Component {
     date: '',
     hour_time: new Date().getHours(),
     minutes_time: new Date().getMinutes(),
+    current_time: new Date().getHours() + ":" + new Date().getMinutes(),
   }
 
   getDate = () => {
@@ -396,16 +397,44 @@ class Main extends Component {
     return current_date;
   }
 
+  getCurrentTime = () => {
+    var date_object = new Date()
+
+    var hour_time = date_object.getHours();
+    if (parseInt(hour_time) < 10){
+      hour_time = '0' + hour_time.toString()
+    }
+
+    var minutes_time = date_object.getMinutes();
+    if (parseInt(minutes_time) < 10){
+      minutes_time = '0' + minutes_time.toString()
+    }
+    var multiple = Math.floor(parseInt(minutes_time, 10) / 10) * 10;
+    if (parseInt(multiple) < 10){
+      multiple = '0' + multiple.toString()
+    }
+
+    var time_list = new Array();
+    time_list['hour_time'] = hour_time;
+    time_list['minutes_time'] = minutes_time;
+    time_list['multiple'] = hour_time + ":" + multiple;
+    return time_list;
+  }
+
   componentDidMount(){
     var current_date = this.getDate();
     this.setState({
       date: current_date,
     });
+
     this.timer1 = setInterval(
       ()=>{
+        var time_list = this.getCurrentTime()
+
         this.setState({
-          hour_time: new Date().getHours(),
-          minutes_time: new Date().getMinutes(),
+          hour_time: time_list['hour_time'],
+          minutes_time: time_list['minutes_time'],
+          current_time: time_list['multiple'],
         });
       }
       , 60000);
@@ -453,8 +482,10 @@ class Main extends Component {
                   <li><p className="header_title_py">&nbsp;&nbsp;Wheather Information Service</p></li>
                 </ul>
               </Col>
-              <Col span={4}></Col>
-              <Col span={6}>
+              <Col span={5}>
+                <img src="yj.png" className="yj-img"/>
+              </Col>
+              <Col span={5}>
                 <div className="nl_time">农历 {cDate}</div>
                 <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
                 <div className="current_date">{this.state.date}</div>
@@ -465,12 +496,17 @@ class Main extends Component {
             <div className="div-frame">
               <WheatherMap map_url={this.state.map_url}/>
             </div>
+            <div className="yj-info">
+            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">2017年8月2日17时发布东胜区未来24小时天气预报：晴，西风3-4级，气温18～28℃。晴日“烤”验。【东胜区气象台】</marquee>
+            </div>
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
             </div>
-            <WheatherStation />
+            <WheatherStation current_time={this.state.current_time}/>
           </Content>
-          <Footer className="footer"></Footer>
+          <Footer className="footer">
+            <span className="footer-word">Copyright © 2017 东胜区气象局 & 东胜区煤炭局</span>
+          </Footer>
         </Layout>
     );
   }
