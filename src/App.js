@@ -464,7 +464,7 @@ class Main extends Component {
             break;
         }
       },
-      20000,
+      60000,
     );
   }
 
