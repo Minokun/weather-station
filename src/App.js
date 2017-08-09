@@ -359,7 +359,7 @@ class WheatherStation extends Component{
 
 class Main extends Component {
   state = {
-    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1',
+    map_url: 'http://10.66.16.42/api/index.php?service=Ground.Temp&type=tem&qi=2',
     map_type: 1,
     date: '',
     hour_time: new Date().getHours(),
