@@ -359,7 +359,7 @@ class WheatherStation extends Component{
 
 class Main extends Component {
   state = {
-    map_url: 'http://10.66.16.42/api/index.php?service=Ground.Temp&type=tem&qi=2',
+    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=2',
     map_type: 1,
     date: '',
     hour_time: new Date().getHours(),
@@ -445,19 +445,19 @@ class Main extends Component {
           case 1:
             this.setState({
               map_type: 2,
-              map_url: "http://10.66.16.42/api/index.php?service=Ground.Temp&type=tem&qi=2"
+              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=2"
             });
             break;
           case 2:
             this.setState({
               map_type: 3,
-              map_url: "http://10.66.16.42/api/index.php?service=Ground.Temp&type=pre&qi=2"
+              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=pre&qi=2"
             });
             break;
           case 3:
             this.setState({
               map_type: 1,
-              map_url: "http://10.66.16.42/api/index.php?service=Ground.Temp&type=win&qi=2"
+              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=win&qi=2"
             });
             break;
           default:
