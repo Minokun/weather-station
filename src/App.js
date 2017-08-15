@@ -422,6 +422,18 @@ class Main extends Component {
     return time_list;
   }
 
+  componentWillMount() {
+    fetch("apiData.json").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          this.setState({
+            api_data: data,
+          });
+        }).catch((error) => {
+          console.log('request faild:', error);
+        })  
+  }
+
   componentDidMount(){
     var current_date = this.getDate();
     this.setState({
@@ -470,7 +482,13 @@ class Main extends Component {
 
     this.timer3 = setInterval(
       ()=>{
-        fetch("http://127.0.0.1:8000/v1/apiData/").then((responce) => {
+        fetch("http://58.18.250.206:5502").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          console.log(data);
+        })
+
+        fetch("apiData.json").then((responce) => {
           return responce.json();
         }).then((data) => {
           this.setState({
@@ -478,8 +496,8 @@ class Main extends Component {
           });
         }).catch((error) => {
           console.log('request faild:', error);
-        })  
-      },60000,
+        })
+      },300000,
     );
   }
 
@@ -512,7 +530,7 @@ class Main extends Component {
               <WheatherMap map_url={this.state.map_url}/>
             </div>
             <div className="yj-info">
-            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">2017年8月2日17时发布东胜区未来24小时天气预报：晴，西风3-4级，气温18～28℃。晴日“烤”验。【东胜区气象台】</marquee>
+            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">{this.state.date} {this.state.hour_time}时发布东胜区当前天气预报：气温 {this.state.api_data[0]['TEM_Min']} ～ {this.state.api_data[0]['TEM_Max']} ℃ {this.state.api_data[0]['direction']} {this.state.api_data[0]['WIN_S_Avg_10mi']} m/s 降雨量{this.state.api_data[0]['PRE_1h']} mm。【东胜区气象台】</marquee>
             </div>
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
