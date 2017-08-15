@@ -479,7 +479,7 @@ class Main extends Component {
         }).catch((error) => {
           console.log('request faild:', error);
         })  
-      },30000,
+      },60000,
     );
   }
 
