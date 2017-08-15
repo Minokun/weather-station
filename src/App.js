@@ -482,12 +482,6 @@ class Main extends Component {
 
     this.timer3 = setInterval(
       ()=>{
-        fetch("http://58.18.250.206:5502").then((responce) => {
-          return responce.json();
-        }).then((data) => {
-          console.log(data);
-        })
-
         fetch("apiData.json").then((responce) => {
           return responce.json();
         }).then((data) => {
