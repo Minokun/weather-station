@@ -44,12 +44,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">24.6 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[0]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 25.9 ℃</li>
-                      <li><Icon type="arrow-down" /> 17.7 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[0]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[0]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -60,15 +60,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;10 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[0]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>西北风</li>
-                        <li>2.5 m/s</li>
+                        <li>{this.props.api_data[0]['direction']}</li>
+                        <li>{this.props.api_data[0]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -99,12 +99,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">24.8 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[1]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 25.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 17.9 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[1]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[1]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -115,15 +115,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[1]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>东北风</li>
-                        <li>2.0 m/s</li>
+                        <li>{this.props.api_data[1]['direction']}</li>
+                        <li>{this.props.api_data[1]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -154,12 +154,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">24.0 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[2]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 24.1 ℃</li>
-                      <li><Icon type="arrow-down" /> 17.8 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[2]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[2]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -170,15 +170,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[2]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>西北风</li>
-                        <li>3.0 m/s</li>
+                        <li>{this.props.api_data[2]['direction']}</li>
+                        <li>{this.props.api_data[2]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -209,12 +209,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">28.1 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[3]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 29.4 ℃</li>
-                      <li><Icon type="arrow-down" /> 18.6 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[3]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[3]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -225,15 +225,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[3]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>西南风</li>
-                        <li>0.7 m/s</li>
+                        <li>{this.props.api_data[3]['direction']}</li>
+                        <li>{this.props.api_data[3]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -264,12 +264,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">24.4 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[4]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 26.5 ℃</li>
-                      <li><Icon type="arrow-down" /> 15.9 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[4]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[4]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -280,15 +280,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;8 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[4]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>西北风</li>
-                        <li>3.0 m/s</li>
+                        <li>{this.props.api_data[4]['direction']}</li>
+                        <li>{this.props.api_data[4]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -319,12 +319,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">25.7 ℃</h1>
+                    <h1 className="tem-word">{this.props.api_data[5]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> 28.4 ℃</li>
-                      <li><Icon type="arrow-down" /> 14.2 ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[5]['TEM']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.props.api_data[5]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -335,15 +335,15 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;0 mm</h1>
+                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[5]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
                     <Col span={8}>
                       <ul className="station-wind-word">
-                        <li>西北风</li>
-                        <li>2.8 m/s</li>
+                        <li>{this.props.api_data[5]['direction']}</li>
+                        <li>{this.props.api_data[5]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
@@ -365,6 +365,7 @@ class Main extends Component {
     hour_time: new Date().getHours(),
     minutes_time: new Date().getMinutes(),
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
+    api_data: '[{"TEM_Max": "0", "TEM_Min": "0", "PRE_1h": "0", "WIN_D_Avg_10mi": "0", "WIN_S_Avg_10mi": "0", "TEM": "0", "direction": "\u897f\u98ce"}, {"TEM_Max": "28.3", "TEM_Min": "27.7", "PRE_1h": "0", "WIN_D_Avg_10mi": "62", "WIN_S_Avg_10mi": "3", "TEM": "28.3", "direction": "\u4e1c\u5317\u98ce"}, {"TEM_Max": "30.2", "TEM_Min": "28.4", "PRE_1h": "0", "WIN_D_Avg_10mi": "130", "WIN_S_Avg_10mi": "3.1", "TEM": "30.2", "direction": "\u4e1c\u5357\u98ce"}, {"WIN_D_Avg_10mi": 34.1, "WIN_S_Avg_10mi": 42.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 15.9, "WIN_S_Avg_10mi": 40.0, "TEM": 29.1, "TEM_Max": 29.2, "TEM_Min": 26.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.2, "WIN_S_Avg_10mi": 0.0, "TEM": 21.6, "TEM_Max": 21.7, "TEM_Min": 20.9, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
   }
 
   getDate = () => {
@@ -429,7 +430,7 @@ class Main extends Component {
 
     this.timer1 = setInterval(
       ()=>{
-        var time_list = this.getCurrentTime()
+        var time_list = this.getCurrentTime();
 
         this.setState({
           hour_time: time_list['hour_time'],
@@ -464,7 +465,21 @@ class Main extends Component {
             break;
         }
       },
-      60000,
+      300000,
+    );
+
+    this.timer3 = setInterval(
+      ()=>{
+        fetch("http://127.0.0.1:8000/v1/apiData/").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          this.setState({
+            api_data: data,
+          });
+        }).catch((error) => {
+          console.log('request faild:', error);
+        })  
+      },5000,
     );
   }
 
@@ -502,7 +517,7 @@ class Main extends Component {
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
             </div>
-            <WheatherStation current_time={this.state.current_time}/>
+            <WheatherStation current_time={this.state.current_time} api_data={this.state.api_data}/>
           </Content>
           <Footer className="footer">
             <span className="footer-word">Copyright © 2017 东胜区气象局 & 东胜区煤炭局</span>
@@ -513,3 +528,6 @@ class Main extends Component {
 }
 
 export default Main;
+
+
+
