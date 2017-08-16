@@ -48,7 +48,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[0]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[0]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[0]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
@@ -103,7 +103,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[1]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[1]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[1]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
@@ -158,7 +158,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[2]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[2]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[2]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
@@ -213,7 +213,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[3]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[3]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[3]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
@@ -268,7 +268,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[4]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[4]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[4]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
@@ -323,7 +323,7 @@ class WheatherStation extends Component{
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[5]['TEM']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.props.api_data[5]['TEM_Max']} ℃</li>
                       <li><Icon type="arrow-down" /> {this.props.api_data[5]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
