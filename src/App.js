@@ -59,13 +59,13 @@ class WheatherStation extends Component{
                     <Col span={4}>
                       <img src="rain.png" className="station-rain"/>
                     </Col>
-                    <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[0]['PRE_1h']} mm</h1>
+                    <Col span={9}>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[0]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
                     </Col>
-                    <Col span={8}>
+                    <Col span={7}>
                       <ul className="station-wind-word">
                         <li>{this.props.api_data[0]['direction']}</li>
                         <li>{this.props.api_data[0]['WIN_S_Avg_10mi']} m/s</li>
@@ -115,7 +115,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[1]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[1]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -170,7 +170,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[2]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[2]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -225,7 +225,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[3]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[3]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -280,7 +280,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[4]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[4]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
@@ -335,7 +335,7 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={8}>
-                      <h1 className="tem-word">&nbsp;&nbsp;{this.props.api_data[5]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[5]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
                       <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
