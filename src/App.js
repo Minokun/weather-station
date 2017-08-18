@@ -122,6 +122,7 @@ class Main extends Component {
     minutes_time: new Date().getMinutes(),
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
     api_data: '[{"TEM_Max": "27", "TEM_Min": "25.8", "PRE_1h": "0", "WIN_D_Avg_10mi": "214", "WIN_S_Avg_10mi": "2", "TEM": "27", "direction": "\u897f\u5357\u98ce"}, {"TEM_Max": "26.7", "TEM_Min": "26.5", "PRE_1h": "0", "WIN_D_Avg_10mi": "154", "WIN_S_Avg_10mi": "3.1", "TEM": "26.7", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "29.1", "TEM_Min": "27.3", "PRE_1h": "0", "WIN_D_Avg_10mi": "242", "WIN_S_Avg_10mi": "3.4", "TEM": "27.3", "direction": "\u897f\u5357\u98ce"}, {"WIN_D_Avg_10mi": 13.5, "WIN_S_Avg_10mi": 3.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 17.4, "WIN_S_Avg_10mi": 1.7, "TEM": 27.2, "TEM_Max": 27.6, "TEM_Min": 26.3, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.3, "WIN_S_Avg_10mi": 0.0, "TEM": 25.6, "TEM_Max": 25.8, "TEM_Min": 24.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
+    weather_data: '{"weather_s": "\u5c0f\u96e8", "weather_e": "\u4e2d\u96e8", "temphigh": "27", "templow": "16", "winddirect": "\u5357\u98ce", "windpow": "3-4 \u7ea7", "quality": "\u8f7b\u5ea6\u6c61\u67d3", "detail": "\u6709\u8f83\u5f3a\u964d\u6c34\uff0c\u5efa\u8bae\u60a8\u9009\u62e9\u5728\u5ba4\u5185\u8fdb\u884c\u5065\u8eab\u4f11\u95f2\u8fd0\u52a8\u3002"}'
   }
 
   getDate = () => {
@@ -247,6 +248,15 @@ class Main extends Component {
         }).catch((error) => {
           console.log('request faild:', error);
         })
+        fetch("weatherData.json").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          this.setState({
+            weather_data: data,
+          });
+        }).catch((error) => {
+          console.log('request faild:', error);
+        })
       },300000,
     );
   }
@@ -280,12 +290,12 @@ class Main extends Component {
               <WheatherMap map_url={this.state.map_url}/>
             </div>
             <div className="yj-info">
-            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">{this.state.date} {this.state.hour_time}时发布东胜区未来24小时天气预报：气温 {this.state.api_data[0]['TEM_Min']} ～ {this.state.api_data[0]['TEM_Max']} ℃ {this.state.api_data[0]['direction']} {this.state.api_data[0]['WIN_S_Avg_10mi']} m/s 降雨量{this.state.api_data[0]['PRE_1h']} mm。【东胜区气象台】</marquee>
+            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">{this.state.date} {this.state.hour_time}时发布东胜区未来24小时天气预报：{this.state.weather_data['weather_s']}~{this.state.weather_data['weather_e']} 气温 {this.state.weather_data['temphigh']} ～ {this.state.weather_data['templow']} ℃ {this.state.weather_data['winddirect']} {this.state.weather_data['windpow']}级 {this.state.weather_data['windpow']} {this.state.weather_data['detail']}。【东胜区气象台】</marquee>
             </div>
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
             </div>
-            <WheatherStation current_time={this.state.current_time} api_data={this.state.api_data}/>
+            <WheatherStation current_time={this.state.current_time} api_data={this.state.api_data} weather_data={this.state.weather_data}/>
           </Content>
           <Footer className="footer">
             <span className="footer-word">Copyright © 2017 东胜区气象局 & 东胜区煤炭局</span>
