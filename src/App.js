@@ -45,7 +45,7 @@ class WheatherStation extends Component{
       styObj_arr.push({
         height: "40px",
         marginLeft: "-2px",
-        transform:"rotate(" + item['WIN_D_Avg_10mi'] + "deg)",
+        transform:"rotate(" + (item['WIN_D_Avg_10mi']) + "deg)",
       });
     });
 
@@ -280,7 +280,7 @@ class Main extends Component {
               <WheatherMap map_url={this.state.map_url}/>
             </div>
             <div className="yj-info">
-            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">{this.state.date} {this.state.hour_time}时发布东胜区当前天气预报：气温 {this.state.api_data[0]['TEM_Min']} ～ {this.state.api_data[0]['TEM_Max']} ℃ {this.state.api_data[0]['direction']} {this.state.api_data[0]['WIN_S_Avg_10mi']} m/s 降雨量{this.state.api_data[0]['PRE_1h']} mm。【东胜区气象台】</marquee>
+            <marquee className="yj-words" direction="left" scrollamount="5" scrolldelay="100">{this.state.date} {this.state.hour_time}时发布东胜区未来24小时天气预报：气温 {this.state.api_data[0]['TEM_Min']} ～ {this.state.api_data[0]['TEM_Max']} ℃ {this.state.api_data[0]['direction']} {this.state.api_data[0]['WIN_S_Avg_10mi']} m/s 降雨量{this.state.api_data[0]['PRE_1h']} mm。【东胜区气象台】</marquee>
             </div>
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
