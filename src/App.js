@@ -19,19 +19,47 @@ class WheatherMap extends Component{
 }
 
 class WheatherStation extends Component{
+  
+  state = {
+    api_data:JSON.parse(this.props.api_data),
+    info:[
+      {"name":"东胜城区","pic":"st_ds.jpeg"},
+      {"name":"泊江海","pic":"st_bjh.jpeg"},
+      {"name":"色连二矿","pic":"st_slek.jpeg"},
+      {"name":"永顺煤矿","pic":"st_ysmk.jpeg"},
+      {"name":"特拉壕煤矿","pic":"st_tlh.jpeg"},
+      {"name":"明达煤矿","pic":"st_mdmk.jpeg"}
+    ],
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
   render(){
-    return(
-      <div>
-        <div className="station-info">
+
+    var rows=[];
+    var styObj_arr=[];
+
+    this.state.api_data.map((item) => {
+      styObj_arr.push({
+        height: "40px",
+        marginLeft: "-2px",
+        transform:"rotate(" + item['WIN_D_Avg_10mi'] + "deg)",
+      });
+    });
+
+    for (var n in this.state.api_data){
+      rows.push(<div className="station-info" key={n}>
           <Row>
             <Col span={10}>
-              <img src="st_ds.jpeg" className="station-info-img"/>
+              <img src={this.state.info[n]['pic']} className="station-info-img"/>
             </Col>
             <Col span={14}>
               <div className="station-title">
                 <Row>
                   <Col span={14}>
-                    <h1 className="station-name">东胜城区</h1>
+                    <h1 className="station-name">{this.state.info[n]['name']}</h1>
                   </Col>
                   <Col span={10}>
                     <h1 className="station-time">{this.props.current_time} 实况</h1>
@@ -44,12 +72,12 @@ class WheatherStation extends Component{
                     <img src="tem_h.png" className="tem_h"/>
                   </Col>
                   <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[0]['TEM']} ℃</h1>
+                    <h1 className="tem-word">{this.state.api_data[n]['TEM']} ℃</h1>
                   </Col>
                   <Col span={12}>
                     <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[0]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[0]['TEM_Min']} ℃</li>
+                      <li><Icon type="arrow-up" /> {this.state.api_data[n]['TEM_Max']} ℃</li>
+                      <li><Icon type="arrow-down" /> {this.state.api_data[n]['TEM_Min']} ℃</li>
                     </ul>
                   </Col>
                 </Row>
@@ -60,298 +88,26 @@ class WheatherStation extends Component{
                       <img src="rain.png" className="station-rain"/>
                     </Col>
                     <Col span={9}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[0]['PRE_1h']} mm</h1>
+                      <h1 className="rain-word">&nbsp;&nbsp;{this.state.api_data[n]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
+                      <img style={styObj_arr[n]} src="wind.png" className="station-wind"/>
                     </Col>
                     <Col span={7}>
                       <ul className="station-wind-word">
-                        <li>{this.props.api_data[0]['direction']}</li>
-                        <li>{this.props.api_data[0]['WIN_S_Avg_10mi']} m/s</li>
+                        <li>{this.state.api_data[n]['direction']}</li>
+                        <li>{this.state.api_data[n]['WIN_S_Avg_10mi']} m/s</li>
                       </ul>
                     </Col>
                   </Row>
               </div>
             </Col>
           </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="st_bjh.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">泊江海</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[1]['TEM']} ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[1]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[1]['TEM_Min']} ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[1]['PRE_1h']} mm</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>{this.props.api_data[1]['direction']}</li>
-                        <li>{this.props.api_data[1]['WIN_S_Avg_10mi']} m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="st_slek.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">色连二矿</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[2]['TEM']} ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[2]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[2]['TEM_Min']} ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[2]['PRE_1h']} mm</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>{this.props.api_data[2]['direction']}</li>
-                        <li>{this.props.api_data[2]['WIN_S_Avg_10mi']} m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="st_ysmk.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">永顺煤矿</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[3]['TEM']} ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[3]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[3]['TEM_Min']} ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[3]['PRE_1h']} mm</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>{this.props.api_data[3]['direction']}</li>
-                        <li>{this.props.api_data[3]['WIN_S_Avg_10mi']} m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="st_tlh.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">特拉壕煤矿</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[4]['TEM']} ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[4]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[4]['TEM_Min']} ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[4]['PRE_1h']} mm</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>{this.props.api_data[4]['direction']}</li>
-                        <li>{this.props.api_data[4]['WIN_S_Avg_10mi']} m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="station-info">
-          <Row>
-            <Col span={10}>
-              <img src="st_mdmk.jpeg" className="station-info-img"/>
-            </Col>
-            <Col span={14}>
-              <div className="station-title">
-                <Row>
-                  <Col span={14}>
-                    <h1 className="station-name">明达煤矿</h1>
-                  </Col>
-                  <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-tem">
-                <Row>
-                  <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
-                  </Col>
-                  <Col span={8}>
-                    <h1 className="tem-word">{this.props.api_data[5]['TEM']} ℃</h1>
-                  </Col>
-                  <Col span={12}>
-                    <ul className="tem-low-high">
-                      <li><Icon type="arrow-up" /> {this.props.api_data[5]['TEM_Max']} ℃</li>
-                      <li><Icon type="arrow-down" /> {this.props.api_data[5]['TEM_Min']} ℃</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              <div className="station-rain-wind">
-                <Row>
-                    <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
-                    </Col>
-                    <Col span={8}>
-                      <h1 className="rain-word">&nbsp;&nbsp;{this.props.api_data[5]['PRE_1h']} mm</h1>
-                    </Col>
-                    <Col span={4}>
-                      <Icon type="tag" style={{fontSize: 30,color: '#08c'}} spin="True" className="station-wind"/>
-                    </Col>
-                    <Col span={8}>
-                      <ul className="station-wind-word">
-                        <li>{this.props.api_data[5]['direction']}</li>
-                        <li>{this.props.api_data[5]['WIN_S_Avg_10mi']} m/s</li>
-                      </ul>
-                    </Col>
-                  </Row>
-              </div>
-            </Col>
-          </Row>
-        </div>
-
+        </div>);
+    }
+    return(
+      <div>
+        {rows}
       </div>
     );
   }
@@ -365,7 +121,7 @@ class Main extends Component {
     hour_time: new Date().getHours(),
     minutes_time: new Date().getMinutes(),
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
-    api_data: '[{"TEM_Max": "0", "TEM_Min": "0", "PRE_1h": "0", "WIN_D_Avg_10mi": "0", "WIN_S_Avg_10mi": "0", "TEM": "0", "direction": "\u897f\u98ce"}, {"TEM_Max": "28.3", "TEM_Min": "27.7", "PRE_1h": "0", "WIN_D_Avg_10mi": "62", "WIN_S_Avg_10mi": "3", "TEM": "28.3", "direction": "\u4e1c\u5317\u98ce"}, {"TEM_Max": "30.2", "TEM_Min": "28.4", "PRE_1h": "0", "WIN_D_Avg_10mi": "130", "WIN_S_Avg_10mi": "3.1", "TEM": "30.2", "direction": "\u4e1c\u5357\u98ce"}, {"WIN_D_Avg_10mi": 34.1, "WIN_S_Avg_10mi": 42.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 15.9, "WIN_S_Avg_10mi": 40.0, "TEM": 29.1, "TEM_Max": 29.2, "TEM_Min": 26.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.2, "WIN_S_Avg_10mi": 0.0, "TEM": 21.6, "TEM_Max": 21.7, "TEM_Min": 20.9, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
+    api_data: '[{"TEM_Max": "27", "TEM_Min": "25.8", "PRE_1h": "0", "WIN_D_Avg_10mi": "214", "WIN_S_Avg_10mi": "2", "TEM": "27", "direction": "\u897f\u5357\u98ce"}, {"TEM_Max": "26.7", "TEM_Min": "26.5", "PRE_1h": "0", "WIN_D_Avg_10mi": "154", "WIN_S_Avg_10mi": "3.1", "TEM": "26.7", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "29.1", "TEM_Min": "27.3", "PRE_1h": "0", "WIN_D_Avg_10mi": "242", "WIN_S_Avg_10mi": "3.4", "TEM": "27.3", "direction": "\u897f\u5357\u98ce"}, {"WIN_D_Avg_10mi": 13.5, "WIN_S_Avg_10mi": 3.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 17.4, "WIN_S_Avg_10mi": 1.7, "TEM": 27.2, "TEM_Max": 27.6, "TEM_Min": 26.3, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.3, "WIN_S_Avg_10mi": 0.0, "TEM": 25.6, "TEM_Max": 25.8, "TEM_Min": 24.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
   }
 
   getDate = () => {
