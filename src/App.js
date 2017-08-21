@@ -117,6 +117,7 @@ class Main extends Component {
     map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1',
     map_type: 1,
     date: '',
+    alarm_pic: '',
     hour_time: new Date().getHours(),
     minutes_time: new Date().getMinutes(),
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
@@ -257,6 +258,16 @@ class Main extends Component {
         }).catch((error) => {
           console.log('request faild:', error);
         })
+
+        fetch("alarmInfo.json").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          this.setState({
+            alarm_pic: data['data'],
+          });
+        }).catch((error) => {
+          console.log('request faild:', error);
+        })
       },300000,
     );
   }
@@ -276,7 +287,7 @@ class Main extends Component {
                 </ul>
               </Col>
               <Col span={5}>
-                <img src="yj.png" className="yj-img"/>
+                <img src={this.state.alarm_pic} className="yj-img"/>
               </Col>
               <Col span={5}>
                 <div className="nl_time">农历 {cDate}</div>
