@@ -21,7 +21,7 @@ class WheatherMap extends Component{
 class WheatherStation extends Component{
   
   state = {
-    api_data:JSON.parse(this.props.api_data),
+    api_data:JSON.parse('[{"TEM_Max": "15.9", "TEM_Min": "15.7", "PRE_1h": "0.8", "WIN_D_Avg_10mi": "39", "WIN_S_Avg_10mi": "1.8", "TEM": "15.9", "direction": "\u4e1c\u5317\u98ce"}, {"TEM_Max": "16.6", "TEM_Min": "16.5", "PRE_1h": "0.3", "WIN_D_Avg_10mi": "142", "WIN_S_Avg_10mi": "3.7", "TEM": "16.5", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "17.1", "TEM_Min": "16.2", "PRE_1h": "1.7", "WIN_D_Avg_10mi": "120", "WIN_S_Avg_10mi": "4.4", "TEM": "16.2", "direction": "\u4e1c\u5357\u98ce"}, {"WIN_D_Avg_10mi": 31.9, "WIN_S_Avg_10mi": 3.3, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 40.0, "WIN_S_Avg_10mi": 1.7, "TEM": 16.0, "TEM_Max": 16.0, "TEM_Min": 15.5, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 31.7, "WIN_S_Avg_10mi": 0.0, "TEM": 15.1, "TEM_Max": 15.9, "TEM_Min": 15.1, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}]'),
     info:[
       {"name":"东胜城区","pic":"st_ds.jpeg"},
       {"name":"泊江海","pic":"st_bjh.jpeg"},
@@ -34,6 +34,32 @@ class WheatherStation extends Component{
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    fetch("apiData.json").then((responce) => {
+      return responce.json();
+    }).then((data) => {
+      this.setState({
+        api_data: data,
+      });
+    }).catch((error) => {
+      console.log('request faild:', error);
+    }) 
+
+    this.timer1 = setInterval(
+      ()=>{
+        fetch("apiData.json").then((responce) => {
+          return responce.json();
+        }).then((data) => {
+          this.setState({
+            api_data: data,
+          });
+        }).catch((error) => {
+          console.log('request faild:', error);
+        }) 
+      }
+      , 300000);
   }
 
   render(){
@@ -122,7 +148,7 @@ class Main extends Component {
     minutes_time: new Date().getMinutes(),
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
     api_data: '[{"TEM_Max": "27", "TEM_Min": "25.8", "PRE_1h": "0", "WIN_D_Avg_10mi": "214", "WIN_S_Avg_10mi": "2", "TEM": "27", "direction": "\u897f\u5357\u98ce"}, {"TEM_Max": "26.7", "TEM_Min": "26.5", "PRE_1h": "0", "WIN_D_Avg_10mi": "154", "WIN_S_Avg_10mi": "3.1", "TEM": "26.7", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "29.1", "TEM_Min": "27.3", "PRE_1h": "0", "WIN_D_Avg_10mi": "242", "WIN_S_Avg_10mi": "3.4", "TEM": "27.3", "direction": "\u897f\u5357\u98ce"}, {"WIN_D_Avg_10mi": 13.5, "WIN_S_Avg_10mi": 3.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 17.4, "WIN_S_Avg_10mi": 1.7, "TEM": 27.2, "TEM_Max": 27.6, "TEM_Min": 26.3, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.3, "WIN_S_Avg_10mi": 0.0, "TEM": 25.6, "TEM_Max": 25.8, "TEM_Min": 24.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
-    weather_data: JSON.parse('{"weather_s": "\u5c0f\u96e8", "weather_e": "\u4e2d\u96e8", "temphigh": "27", "templow": "16", "winddirect": "\u5357\u98ce", "windpow": "3-4 \u7ea7", "quality": "\u8f7b\u5ea6\u6c61\u67d3", "detail": "\u6709\u8f83\u5f3a\u964d\u6c34\uff0c\u5efa\u8bae\u60a8\u9009\u62e9\u5728\u5ba4\u5185\u8fdb\u884c\u5065\u8eab\u4f11\u95f2\u8fd0\u52a8\u3002"}')
+    weather_data: ''
   }
 
   getDate = () => {
@@ -179,19 +205,27 @@ class Main extends Component {
     return time_list;
   }
 
-  componentWillMount() {
-    fetch("apiData.json").then((responce) => {
-          return responce.json();
-        }).then((data) => {
-          this.setState({
-            api_data: data,
-          });
-        }).catch((error) => {
-          console.log('request faild:', error);
-        })  
-  }
-
   componentDidMount(){
+    fetch("weatherData.json").then((responce) => {
+      return responce.json();
+    }).then((data) => {
+      this.setState({
+        weather_data: data,
+      });
+    }).catch((error) => {
+      console.log('request faild:', error);
+    })
+
+    fetch("alarmInfo.json").then((responce) => {
+      return responce.json();
+    }).then((data) => {
+      this.setState({
+        alarm_pic: data['data'],
+      });
+    }).catch((error) => {
+      console.log('request faild:', error);
+    })
+
     var current_date = this.getDate();
     this.setState({
       date: current_date,
@@ -239,16 +273,6 @@ class Main extends Component {
 
     this.timer3 = setInterval(
       ()=>{
-        fetch("apiData.json").then((responce) => {
-          return responce.json();
-        }).then((data) => {
-          this.setState({
-            api_data: data,
-          });
-        }).catch((error) => {
-          console.log('request faild:', error);
-        })
-
         fetch("weatherData.json").then((responce) => {
           return responce.json();
         }).then((data) => {
@@ -268,7 +292,7 @@ class Main extends Component {
         }).catch((error) => {
           console.log('request faild:', error);
         })
-      },300000,
+      },3600000,
     );
   }
 
@@ -306,7 +330,7 @@ class Main extends Component {
             <div className="title_tip">
               <span class="title_tip_font">自动站实况</span>
             </div>
-            <WheatherStation current_time={this.state.current_time} api_data={this.state.api_data} weather_data={this.state.weather_data}/>
+            <WheatherStation current_time={this.state.current_time} />
           </Content>
           <Footer className="footer">
             <span className="footer-word">Copyright © 2017 东胜区气象局 & 东胜区煤炭局</span>
