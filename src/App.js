@@ -27,7 +27,7 @@ class WheatherStation extends Component{
       {"name":"泊江海","pic":"st_bjh.jpeg"},
       {"name":"色连二矿","pic":"st_slek.jpeg"},
       {"name":"永顺煤矿","pic":"st_ysmk.jpeg"},
-      {"name":"特拉壕煤矿","pic":"st_tlh.jpeg"},
+      {"name":"塔拉壕煤矿","pic":"st_tlh.jpeg"},
       {"name":"明达煤矿","pic":"st_mdmk.jpeg"}
     ],
   }
