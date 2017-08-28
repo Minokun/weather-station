@@ -8,12 +8,10 @@ const { Header, Footer, Content} = Layout;
 let cDate = LunarUtil.today();
 
 class WheatherMap extends Component{
-  constructor(props){
-    super(props);
-  }
+
   render(){
     return (
-      <iframe src={this.props.map_url} className="map"></iframe>
+      <iframe title="map_div" src={this.props.map_url} className="map"></iframe>
     );
   }
 }
@@ -30,10 +28,6 @@ class WheatherStation extends Component{
       {"name":"塔拉壕煤矿","pic":"st_tlh.jpeg"},
       {"name":"明达煤矿","pic":"st_mdmk.jpeg"}
     ],
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   componentDidMount() {
@@ -72,13 +66,14 @@ class WheatherStation extends Component{
         marginLeft: "-2px",
         transform:"rotate(" + (item['WIN_D_Avg_10mi']) + "deg)",
       });
+      return styObj_arr;
     });
 
     for (var n in this.state.api_data){
       rows.push(<div className="station-info" key={n}>
           <Row>
             <Col span={10}>
-              <img src={this.state.info[n]['pic']} className="station-info-img"/>
+              <img src={this.state.info[n]['pic']} alt="图片加载失败" className="station-info-img"/>
             </Col>
             <Col span={14}>
               <div className="station-title">
@@ -94,7 +89,7 @@ class WheatherStation extends Component{
               <div className="station-tem">
                 <Row>
                   <Col span={4}>
-                    <img src="tem_h.png" className="tem_h"/>
+                    <img src="tem_h.png" alt="图片加载失败" className="tem_h"/>
                   </Col>
                   <Col span={8}>
                     <h1 className="tem-word">{this.state.api_data[n]['TEM']} ℃</h1>
@@ -110,13 +105,13 @@ class WheatherStation extends Component{
               <div className="station-rain-wind">
                 <Row>
                     <Col span={4}>
-                      <img src="rain.png" className="station-rain"/>
+                      <img src="rain.png" alt="图片加载失败" className="station-rain"/>
                     </Col>
                     <Col span={9}>
                       <h1 className="rain-word">&nbsp;&nbsp;{this.state.api_data[n]['PRE_1h']} mm</h1>
                     </Col>
                     <Col span={4}>
-                      <img style={styObj_arr[n]} src="wind.png" className="station-wind"/>
+                      <img style={styObj_arr[n]} src="wind.png" alt="图片加载失败" className="station-wind"/>
                     </Col>
                     <Col span={7}>
                       <ul className="station-wind-word">
@@ -176,6 +171,8 @@ class Main extends Component {
       case 6:
         wday =  "星期六";
         break;
+      default:
+        break;
     }
     var current_date = mydate.getFullYear() + "-" + (mydate.getMonth() + 1) + "-" + mydate.getDate() + " " + wday;
     return current_date;
@@ -185,20 +182,20 @@ class Main extends Component {
     var date_object = new Date()
 
     var hour_time = date_object.getHours();
-    if (parseInt(hour_time) < 10){
+    if (parseInt(hour_time,10) < 10){
       hour_time = '0' + hour_time.toString()
     }
 
     var minutes_time = date_object.getMinutes();
-    if (parseInt(minutes_time) < 10){
+    if (parseInt(minutes_time,10) < 10){
       minutes_time = '0' + minutes_time.toString()
     }
     var multiple = Math.floor(parseInt(minutes_time, 10) / 10) * 10;
-    if (parseInt(multiple) < 10){
+    if (parseInt(multiple,10) < 10){
       multiple = '0' + multiple.toString()
     }
 
-    var time_list = new Array();
+    var time_list = [];
     time_list['hour_time'] = hour_time;
     time_list['minutes_time'] = minutes_time;
     time_list['multiple'] = hour_time + ":" + multiple;
@@ -302,7 +299,7 @@ class Main extends Component {
           <Header>
             <Row>
               <Col span={2}>
-                <img src="icon.png" className="img-icon"/>
+                <img src="icon.png" alt="图片加载失败" className="img-icon"/>
               </Col>
               <Col span={12}>
                 <ul>
@@ -311,7 +308,7 @@ class Main extends Component {
                 </ul>
               </Col>
               <Col span={5}>
-                <img src={this.state.alarm_pic} className="yj-img"/>
+                <img src={this.state.alarm_pic} alt="图片加载失败" className="yj-img"/>
               </Col>
               <Col span={5}>
                 <div className="nl_time">农历 {cDate}</div>
