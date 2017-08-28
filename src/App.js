@@ -299,7 +299,7 @@ class Main extends Component {
           <Header>
             <Row>
               <Col span={2}>
-                <img src="icon.png" alt="图片加载失败" className="img-icon"/>
+                <img src="icon.png" alt=" " className="img-icon"/>
               </Col>
               <Col span={12}>
                 <ul>
