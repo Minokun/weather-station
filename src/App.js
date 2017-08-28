@@ -299,7 +299,7 @@ class Main extends Component {
           <Header>
             <Row>
               <Col span={2}>
-                <img src="icon.png" alt=" " className="img-icon"/>
+                <img src="icon.png" alt="图片加载失败" className="img-icon"/>
               </Col>
               <Col span={12}>
                 <ul>
@@ -308,7 +308,7 @@ class Main extends Component {
                 </ul>
               </Col>
               <Col span={5}>
-                <img src={this.state.alarm_pic} alt="图片加载失败" className="yj-img"/>
+                <img src={this.state.alarm_pic} alt=" " className="yj-img"/>
               </Col>
               <Col span={5}>
                 <div className="nl_time">农历 {cDate}</div>
