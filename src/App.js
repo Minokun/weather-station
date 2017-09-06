@@ -315,11 +315,9 @@ class Main extends Component {
                 <img src={this.state.alarm_pic} alt=" " className="yj-img"/>
               </Col>
               <Col span={5}>
-<<<<<<< HEAD
                 <div className="nl_time">{cDate}</div>
-=======
                 <div className="nl_time">农历 {this.state.cData}</div>
->>>>>>> refs/remotes/origin/master
+
                 <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
                 <div className="current_date">{this.state.date}</div>
               </Col>
