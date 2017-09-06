@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { Layout  , Row , Col ,Icon} from 'antd';
-import LunarUtil from './LunarUtil.js';
+import {today,} from './Lunar.js';
 
 const { Header, Footer, Content} = Layout;
-let cDate = LunarUtil.today();
+let cDate = today;
 
 class WheatherMap extends Component{
 
@@ -311,7 +311,7 @@ class Main extends Component {
                 <img src={this.state.alarm_pic} alt=" " className="yj-img"/>
               </Col>
               <Col span={5}>
-                <div className="nl_time">农历 {cDate}</div>
+                <div className="nl_time">{cDate}</div>
                 <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
                 <div className="current_date">{this.state.date}</div>
               </Col>
