@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { Layout  , Row , Col ,Icon} from 'antd';
-import LunarUtil from './LunarUtil.js';
+import {today,} from './Lunar.js';
 import WheatherStation01 from './type1.js';
 import WheatherStation02 from './type2.js';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 
 const { Header, Footer, Content} = Layout;
+
+let LDate = today;
 
 class WheatherMap extends Component{
 
@@ -29,7 +31,7 @@ class Main extends Component {
     current_time: new Date().getHours() + ":" + new Date().getMinutes(),
     api_data: '[{"TEM_Max": "27", "TEM_Min": "25.8", "PRE_1h": "0", "WIN_D_Avg_10mi": "214", "WIN_S_Avg_10mi": "2", "TEM": "27", "direction": "\u897f\u5357\u98ce"}, {"TEM_Max": "26.7", "TEM_Min": "26.5", "PRE_1h": "0", "WIN_D_Avg_10mi": "154", "WIN_S_Avg_10mi": "3.1", "TEM": "26.7", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "29.1", "TEM_Min": "27.3", "PRE_1h": "0", "WIN_D_Avg_10mi": "242", "WIN_S_Avg_10mi": "3.4", "TEM": "27.3", "direction": "\u897f\u5357\u98ce"}, {"WIN_D_Avg_10mi": 13.5, "WIN_S_Avg_10mi": 3.0, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 17.4, "WIN_S_Avg_10mi": 1.7, "TEM": 27.2, "TEM_Max": 27.6, "TEM_Min": 26.3, "PRE_1h": 0, "direction": "\u5317\u98ce"}, {"WIN_D_Avg_10mi": 18.3, "WIN_S_Avg_10mi": 0.0, "TEM": 25.6, "TEM_Max": 25.8, "TEM_Min": 24.1, "PRE_1h": 0, "direction": "\u5317\u98ce"}]',
     weather_data: '',
-    cData: LunarUtil.today(),
+    cDate: LDate,
   }
 
   getDate = () => {
@@ -122,7 +124,7 @@ class Main extends Component {
           hour_time: time_list['hour_time'],
           minutes_time: time_list['minutes_time'],
           current_time: time_list['multiple'],
-          cData: LunarUtil.today(),
+          cDate: LDate,
           date: this.getDate(),
         });
       }
@@ -199,7 +201,8 @@ class Main extends Component {
                 <img src={this.state.alarm_pic} alt=" " className="yj-img"/>
               </Col>
               <Col span={5}>
-                <div className="nl_time">农历 {this.state.cData}</div>
+                <div className="nl_time">{this.state.cDate}</div>
+
                 <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
                 <div className="current_date">{this.state.date}</div>
               </Col>
