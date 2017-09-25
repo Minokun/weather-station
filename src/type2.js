@@ -5,19 +5,44 @@ import { Row , Col, Icon } from 'antd';
 class WheatherStation02 extends Component{
   
   state = {
-    api_data:JSON.parse('[{"TEM_Max": "15.9", "TEM_Min": "15.7", "PRE_1h": "0.8", "WIN_D_Avg_10mi": "39", "WIN_S_Avg_10mi": "1.8", "TEM": "15.9", "direction": "\u4e1c\u5317\u98ce"}, {"TEM_Max": "16.6", "TEM_Min": "16.5", "PRE_1h": "0.3", "WIN_D_Avg_10mi": "142", "WIN_S_Avg_10mi": "3.7", "TEM": "16.5", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "17.1", "TEM_Min": "16.2", "PRE_1h": "1.7", "WIN_D_Avg_10mi": "120", "WIN_S_Avg_10mi": "4.4", "TEM": "16.2", "direction": "\u4e1c\u5357\u98ce"}, {"WIN_D_Avg_10mi": 31.9, "WIN_S_Avg_10mi": 3.3, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 40.0, "WIN_S_Avg_10mi": 1.7, "TEM": 16.0, "TEM_Max": 16.0, "TEM_Min": 15.5, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 31.7, "WIN_S_Avg_10mi": 0.0, "TEM": 15.1, "TEM_Max": 15.9, "TEM_Min": 15.1, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}]'),
+    api_data:JSON.parse('[{"TEM_Max": "18.9", "TEM_Min": "15.4", "PRE_1h": "0.8", "WIN_D_Avg_10mi": "39", "WIN_S_Avg_10mi": "1.8", "TEM": "16.9", "direction": "\u4e1c\u5317\u98ce"}, {"TEM_Max": "16.6", "TEM_Min": "16.5", "PRE_1h": "0.3", "WIN_D_Avg_10mi": "142", "WIN_S_Avg_10mi": "3.7", "TEM": "16.5", "direction": "\u4e1c\u5357\u98ce"}, {"TEM_Max": "17.1", "TEM_Min": "16.2", "PRE_1h": "1.7", "WIN_D_Avg_10mi": "120", "WIN_S_Avg_10mi": "4.4", "TEM": "16.2", "direction": "\u4e1c\u5357\u98ce"}, {"WIN_D_Avg_10mi": 31.9, "WIN_S_Avg_10mi": 3.3, "TEM": "", "TEM_Max": "", "TEM_Min": "", "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 40.0, "WIN_S_Avg_10mi": 1.7, "TEM": 16.0, "TEM_Max": 16.0, "TEM_Min": 15.5, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}, {"WIN_D_Avg_10mi": 31.7, "WIN_S_Avg_10mi": 0.0, "TEM": 15.1, "TEM_Max": 15.9, "TEM_Min": 15.1, "PRE_1h": 0, "direction": "\u4e1c\u5317\u98ce"}]'),
     info:[
       {"name":"东胜城区","pic":"st_ds.jpeg"},
       {"name":"泊江海镇","pic":"st_bjh.jpeg"},
       {"name":"罕台镇","pic":"st_slek.jpeg"},
       {"name":"塔拉壕煤矿","pic":"st_tlh.jpeg"},
       {"name":"折家梁镇","pic":"st_ysmk.jpeg"},
-      {"name":"巴音门克公园","pic":"st_mdmk.jpeg"}
+      {"name":"巴音门克","pic":"st_mdmk.jpeg"}
     ],
+    current_time: new Date().getHours() + ":" + new Date().getMinutes(),
+  }
+
+  getCurrentTime = () => {
+    var date_object = new Date()
+
+    var hour_time = date_object.getHours();
+    if (parseInt(hour_time,10) < 10){
+      hour_time = '0' + hour_time.toString()
+    }
+
+    var minutes_time = date_object.getMinutes();
+    if (parseInt(minutes_time,10) < 10){
+      minutes_time = '0' + minutes_time.toString()
+    }
+    var multiple = Math.floor(parseInt(minutes_time, 10) / 10) * 10;
+    if (parseInt(multiple,10) < 10){
+      multiple = '0' + multiple.toString()
+    }
+
+    var time_list = [];
+    time_list['hour_time'] = hour_time;
+    time_list['minutes_time'] = minutes_time;
+    time_list['multiple'] = hour_time + ":" + multiple;
+    return time_list;
   }
 
   componentDidMount() {
-    fetch("apiData.json").then((responce) => {
+    fetch("apiData2.json").then((responce) => {
       return responce.json();
     }).then((data) => {
       this.setState({
@@ -29,7 +54,7 @@ class WheatherStation02 extends Component{
 
     this.timer1 = setInterval(
       ()=>{
-        fetch("apiData.json").then((responce) => {
+        fetch("apiData2.json").then((responce) => {
           return responce.json();
         }).then((data) => {
           this.setState({
@@ -38,8 +63,20 @@ class WheatherStation02 extends Component{
         }).catch((error) => {
           console.log('request faild:', error);
         }) 
+
+
       }
       , 300000);
+
+    this.timer2 = setInterval(
+      ()=>{
+        var time_list = this.getCurrentTime();
+
+        this.setState({
+          current_time: time_list['multiple']
+        });
+      }
+      , 60000);
   }
 
   render(){
@@ -68,7 +105,7 @@ class WheatherStation02 extends Component{
                     <h1 className="station-name">{this.state.info[n]['name']}</h1>
                   </Col>
                   <Col span={10}>
-                    <h1 className="station-time">{this.props.current_time} 实况</h1>
+                    <h1 className="station-time">{this.state.current_time} 实况</h1>
                   </Col>
                 </Row>
               </div>

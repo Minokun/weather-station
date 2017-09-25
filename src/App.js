@@ -22,7 +22,7 @@ class WheatherMap extends Component{
 
 class Main extends Component {
   state = {
-    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1',
+    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna',
     map_type: 1,
     date: '',
     alarm_pic: '',
@@ -147,8 +147,14 @@ class Main extends Component {
             break;
           case 3:
             this.setState({
-              map_type: 1,
+              map_type: 4,
               map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=win&qi=1"
+            });
+            break;
+          case 4:
+            this.setState({
+              map_type: 1,
+              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna"
             });
             break;
           default:
@@ -197,10 +203,10 @@ class Main extends Component {
                   <li><p className="header_title_py">&nbsp;&nbsp;Wheather Information Service</p></li>
                 </ul>
               </Col>
-              <Col span={5}>
+              <Col span={4}>
                 <img src={this.state.alarm_pic} alt=" " className="yj-img"/>
               </Col>
-              <Col span={5}>
+              <Col span={6}>
                 <div className="nl_time">{this.state.cDate}</div>
 
                 <div className="clock"><span className="current_time">{this.state.hour_time}</span><span className="time_charactor">:</span><span className="current_time">{this.state.minutes_time}</span></div>
