@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Layout  , Row , Col ,Icon} from 'antd';
+import { Layout, Row, Col, Icon, Button} from 'antd';
 import {today,} from './Lunar.js';
 import WheatherStation01 from './type1.js';
 import WheatherStation02 from './type2.js';
@@ -12,18 +12,71 @@ const { Header, Footer, Content} = Layout;
 let LDate = today;
 
 class WheatherMap extends Component{
+  state = {
+    map_url: "http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna",
+    map_type: 1,
+  }
+
+  changeMapType = (value) => {
+    this.changeMapFunction();
+  }
+
+  componentDidMount() {
+    this.timer2 = setInterval(
+      () => {
+        this.changeMapFunction(this.state.map_type)},
+      300000,
+    );
+  }
+
+  changeMapFunction = (value) => {
+    switch (value) {
+      case 1:
+        this.setState({
+          map_type: 2,
+          map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1"
+        });
+        break;
+      case 2:
+        this.setState({
+          map_type: 3,
+          map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=pre&qi=1"
+        });
+        break;
+      case 3:
+        this.setState({
+          map_type: 4,
+          map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=win&qi=1"
+        });
+        break;
+      case 4:
+        this.setState({
+          map_type: 1,
+          map_url: "http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna"
+        });
+        break;
+      default:
+        break;
+    }
+  }
 
   render(){
     return (
-      <iframe title="map_div" src={this.props.map_url} className="map"></iframe>
+      <div>
+      <div style={{ background: 'rgb(136, 157, 186)'}}>
+        <Button type="primary" ghost onClick={() => {this.changeMapFunction(4)}}>未来天气预报</Button>
+        <Button ghost onClick={() => {this.changeMapFunction(1)}}>气温</Button>
+        <Button type="dashed" ghost onClick={() => {this.changeMapFunction(2)}}>降雨</Button>
+        <Button type="dashed" ghost onClick={() => {this.changeMapFunction(3)}}>风速</Button>
+      </div>
+      <iframe title="map_div" src={this.state.map_url} className="map"></iframe>
+      </div>
     );
   }
 }
 
 class Main extends Component {
   state = {
-    map_url: 'http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna',
-    map_type: 1,
     date: '',
     alarm_pic: '',
     hour_time: new Date().getHours(),
@@ -130,39 +183,7 @@ class Main extends Component {
       }
       , 60000);
 
-    this.timer2 = setInterval(
-      ()=>{
-        switch (this.state.map_type) {
-          case 1:
-            this.setState({
-              map_type: 2,
-              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=tem&qi=1"
-            });
-            break;
-          case 2:
-            this.setState({
-              map_type: 3,
-              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=pre&qi=1"
-            });
-            break;
-          case 3:
-            this.setState({
-              map_type: 4,
-              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Ground.Temp&type=win&qi=1"
-            });
-            break;
-          case 4:
-            this.setState({
-              map_type: 1,
-              map_url: "http://qx.zzgge.com:8001/api/index.php?service=Leida.DqybEnna"
-            });
-            break;
-          default:
-            break;
-        }
-      },
-      300000,
-    );
+    
 
     this.timer3 = setInterval(
       ()=>{
@@ -216,7 +237,7 @@ class Main extends Component {
           </Header>
           <Content>
             <div className="div-frame">
-              <WheatherMap map_url={this.state.map_url}/>
+              <WheatherMap />
             </div>
             <div className="yj-info">
             <marquee className="yj-words" direction="left">{this.state.date} {this.state.hour_time}时发布东胜区未来24小时天气预报：天气 {this.state.weather_data['weather_s']}~{this.state.weather_data['weather_e']} 气温 {this.state.weather_data['temphigh']}～{this.state.weather_data['templow']} ℃ {this.state.weather_data['winddirect']} {this.state.weather_data['windpow']} {this.state.weather_data['quality']} {this.state.weather_data['detail']}【东胜区气象台】</marquee>
