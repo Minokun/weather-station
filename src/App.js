@@ -247,7 +247,7 @@ class Main extends Component {
             </div>
             <Router>
               <div>
-                <Route exact path="/" component={WheatherStation01}/>
+                <Route exact path="/type1" component={WheatherStation01}/>
                 <Route path="/type2" component={WheatherStation02}/>
               </div>
             </Router>
